@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>My Foundation — Devika B</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;600;700&family=Space+Grotesk:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--burg:#8B1A35;--gold:#FFB300;--black:#111111;--white:#FFFFFF;--bg:#F8F8F8;--muted:#555555;--border:#E0E0E0}
+html{scroll-behavior:smooth}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(--black);line-height:1.6}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(248,246,242,0.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 5%;height:60px}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--burg);text-decoration:none}
+.nav-links{display:flex;gap:1.5rem;list-style:none;align-items:center}
+.nav-links a{font-family:'Space Grotesk',sans-serif;font-size:0.78rem;font-weight:500;color:var(--muted);text-decoration:none;transition:color 0.2s;letter-spacing:0.03em}
+.nav-links a:hover,.nav-links a.active{color:var(--burg)}
+.nav-cta{background:var(--burg)!important;color:var(--white)!important;padding:0.38rem 0.9rem;border-radius:3px;font-weight:600!important}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
+.hamburger span{display:block;width:22px;height:2px;background:var(--black);transition:all 0.3s}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-menu{display:none;position:fixed;top:60px;left:0;right:0;background:var(--white);border-bottom:1px solid var(--border);z-index:99;padding:0.8rem 5%;flex-direction:column}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-family:'Space Grotesk',sans-serif;font-size:0.85rem;font-weight:500;color:var(--black);text-decoration:none;padding:0.7rem 0;border-bottom:1px solid var(--border);display:block}
+.mobile-menu a:last-child{border-bottom:none;color:var(--burg);font-weight:600}
+
+/* HERO */
+.page-hero{padding:72px 5% 25px;background:var(--black)}
+.p-eyebrow{font-family:'Space Grotesk',sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:0.4rem}
+.p-title{font-family:'Playfair Display',serif;font-size:clamp(1.5rem,4vw,2.6rem);font-weight:300;color:var(--white);line-height:1.1;letter-spacing:0.02em;margin-bottom:0.5rem}
+.p-sub{font-family:'Space Grotesk',sans-serif;font-size:0.8rem;font-weight:300;color:rgba(255,255,255,0.45);max-width:560px;line-height:1.7}
+
+/* MAIN */
+main{padding:30px 5% 20px}
+
+/* TIMELINE */
+.tl{position:relative;padding-left:2rem;max-width:800px}
+.tl::before{content:'';position:absolute;left:0;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,var(--gold),transparent)}
+
+.tl-item{position:relative;padding:0 0 2.5rem 2rem}
+.tl-item::before{content:'';position:absolute;left:-2rem;top:8px;width:14px;height:14px;border-radius:50%;background:var(--gold);transform:translateX(calc(-50% + 0.5px));box-shadow:0 0 0 4px rgba(255,179,0,0.2)}
+.tl-item.past::before{background:transparent;border:2px solid var(--gold);box-shadow:0 0 0 3px rgba(255,179,0,0.1)}
+
+.tl-top{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;margin-bottom:0.5rem;flex-wrap:wrap}
+.tl-role{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:600;color:var(--black);line-height:1.2}
+.tl-date{font-family:'Space Grotesk',sans-serif;font-size:0.65rem;font-weight:600;color:var(--white);letter-spacing:0.1em;text-transform:uppercase;background:var(--burg);padding:0.2rem 0.7rem;white-space:nowrap;height:fit-content}
+.tl-co{font-family:'Space Grotesk',sans-serif;font-size:0.75rem;font-weight:500;color:var(--burg);margin-bottom:1rem;letter-spacing:0.04em;text-transform:uppercase}
+
+.tl-narrative{font-family:'Plus Jakarta Sans',sans-serif;font-size:0.87rem;font-weight:400;color:var(--black);line-height:1.85;margin-bottom:0.9rem;max-width:700px}
+.tl-narrative em{font-style:italic;color:var(--black);font-weight:400}
+
+.tags{display:flex;flex-wrap:wrap;gap:0.3rem}
+.tag{font-family:'Space Grotesk',sans-serif;font-size:0.6rem;font-weight:500;background:transparent;border:1px solid var(--border);color:var(--muted);padding:0.15rem 0.55rem;letter-spacing:0.04em;text-transform:uppercase}
+
+/* DIVIDER */
+.section-block{max-width:800px;margin-top:1rem}
+.sec-label{font-family:'Space Grotesk',sans-serif;font-size:0.68rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--burg);margin-bottom:0.8rem;display:flex;align-items:center;gap:0.8rem}
+.sec-label::after{content:'';flex:1;height:1px;background:var(--border)}
+
+/* EDU GRID */
+.edu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:0.5rem}
+.edu-card{background:var(--white);border:1px solid var(--border);padding:0.7rem 0.9rem}
+.edu-badge{display:inline-block;font-family:'Space Grotesk',sans-serif;font-size:0.58rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:0.12rem 0.5rem;margin-bottom:0.45rem}
+.b-edu{background:#F5F5F5;color:var(--black)}
+.b-cert{background:#FFF0F5;color:var(--burg)}
+.b-award{background:#FFF0F5;color:var(--burg)}
+.edu-name{font-family:'Playfair Display',serif;font-size:0.92rem;font-weight:600;color:var(--burg);margin-bottom:0.2rem;line-height:1.35}
+.edu-org{font-size:0.72rem;color:var(--muted);font-family:'Space Grotesk',sans-serif;font-weight:300}
+.edu-yr{font-size:0.68rem;color:var(--burg);font-family:'Space Grotesk',sans-serif;font-weight:600;margin-top:0.3rem;line-height:1.5}
+
+.back-btn{display:inline-flex;align-items:center;gap:0.5rem;font-family:'Space Grotesk',sans-serif;font-size:0.7rem;font-weight:600;color:var(--black);text-decoration:none;border-bottom:1px solid var(--gold);padding-bottom:2px;margin-top:1.5rem;text-transform:uppercase;letter-spacing:0.08em}
+
+footer{background:#000;color:#444;text-align:center;padding:1rem 5%;font-family:'Space Grotesk',sans-serif;font-size:0.7rem;margin-top:2rem}
+
+@media(max-width:768px){
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .edu-grid{grid-template-columns:1fr}
+  .tl-top{flex-direction:column;gap:0.3rem}
+}
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo">Devika B</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="journey.html" class="active">My Foundation</a></li>
+    <li><a href="work.html">My Workspace</a></li>
+    <li><a href="story.html">My Chapters</a></li>
+    <li><a href="index.html#contact" class="nav-cta">Let's Talk</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" onclick="closeMenu()">Home</a>
+  <a href="journey.html" onclick="closeMenu()">My Foundation</a>
+  <a href="work.html" onclick="closeMenu()">My Workspace</a>
+  <a href="story.html" onclick="closeMenu()">My Chapters</a>
+  <a href="index.html#contact" onclick="closeMenu()">Let's Talk</a>
+</div>
+
+<div class="page-hero">
+  <div class="p-eyebrow">Career &amp; Experience</div>
+  <h1 class="p-title">My Foundation</h1>
+  <p class="p-sub">Every role I've held — from testing labs to media sales to SaaS — built something I use every day as a digital marketer.</p>
+</div>
+
+<main>
+<div class="tl">
+
+  <div class="tl-item">
+    <div class="tl-top">
+      <div class="tl-role">Digital Marketing Specialist</div>
+      <span class="tl-date">May 2025 – Present</span>
+    </div>
+    <div class="tl-co">Cloudoeasy &middot; SaaS &middot; Bengaluru</div>
+    <p class="tl-narrative">This is where everything converges. Every lesson in client handling, market research, sales strategy, and campaign coordination now flows into a single role. At Cloudoeasy, I lead multi-channel content strategy across LinkedIn, Instagram, Facebook, and YouTube — producing <em>SEO-optimised blogs, newsletters, and video content</em> powered by AI tools. I set up GA4 and Google Tag Manager tracking infrastructure to enable performance monitoring, conduct research and planning for LinkedIn and Google Ads campaigns, and manage brand presence on platforms like Gartner and IFMA. Email marketing via Mailchimp and sales outreach via Apollo round out the execution side — all informed by a career built at the front line of client relationships.</p>
+    <div class="tags"><span class="tag">Content Strategy</span><span class="tag">SEO</span><span class="tag">GA4</span><span class="tag">GTM</span><span class="tag">Mailchimp</span><span class="tag">Apollo.io</span><span class="tag">AI Tools</span><span class="tag">LinkedIn Marketing</span></div>
+  </div>
+
+  <div class="tl-item past">
+    <div class="tl-top">
+      <div class="tl-role">Senior Account Manager</div>
+      <span class="tl-date">Feb 2022 – Jul 2023</span>
+    </div>
+    <div class="tl-co">Entertainment Network India Ltd &middot; Media</div>
+    <p class="tl-narrative">This is the role that most directly bridges my background to digital marketing — because <em>owning a client's full journey, from first conversation to final delivery, is exactly what an Account Manager in a digital agency does</em>. I directed the end-to-end B2B sales funnel for the West Tamil Nadu market, managing relationships across Healthcare, Jewellery, Wellness, and Retail clients through integrated Radio, Digital, and Events campaigns. Salesforce was central to how I tracked pipeline, spotted account growth opportunities, and drove recurring revenue. The role demanded cross-functional coordination — briefing internal creative and content teams, resolving issues before they reached the client, and maintaining the kind of consistent stakeholder communication that turns one-time clients into long-term partners.</p>
+    <div class="tags"><span class="tag">Account Management</span><span class="tag">B2B Sales Funnel</span><span class="tag">Salesforce</span><span class="tag">Integrated Campaigns</span><span class="tag">Client Retention</span><span class="tag">Stakeholder Management</span></div>
+  </div>
+
+  <div class="tl-item past">
+    <div class="tl-top">
+      <div class="tl-role">Skills Research Analyst</div>
+      <span class="tl-date">Oct 2020 – Jan 2022</span>
+    </div>
+    <div class="tl-co">IYS Skills Tech (3D Talent Services) &middot; HR Tech</div>
+    <p class="tl-narrative">Two years of pure market intelligence that sharpened a habit I carry into every campaign: <em>understand the landscape before you enter it</em>. I conducted in-depth research on HR Tech products and competitor positioning, used LinkedIn Sales Navigator and Zoho CRM to validate high-value target accounts, and ensured data integrity across all outreach initiatives. This research-first discipline now directly informs how I approach SEO strategy, audience segmentation, and campaign planning.</p>
+    <div class="tags"><span class="tag">Market Intelligence</span><span class="tag">LinkedIn Sales Navigator</span><span class="tag">Zoho CRM</span><span class="tag">Competitive Research</span><span class="tag">Data Validation</span></div>
+  </div>
+
+  <div class="tl-item past">
+    <div class="tl-top">
+      <div class="tl-role">Management Trainee — Marketing</div>
+      <span class="tl-date">Jul 2017 – Feb 2019</span>
+    </div>
+    <div class="tl-co">Loyal Textile Mills Ltd &middot; Textile Industry</div>
+    <p class="tl-narrative">My first experience of how a business actually operates end-to-end — and where I built the <em>operational backbone</em> that underpins my marketing work today. I coordinated a cross-functional initiative from the ground up, managed B2B client inquiries, and consolidated complex sales and operational datasets into clear, executive-ready insights. This early exposure to structured thinking, stakeholder alignment, and data-led decision-making set the standard for how I approach every project.</p>
+    <div class="tags"><span class="tag">B2B Client Management</span><span class="tag">Cross-functional Coordination</span><span class="tag">Data Analysis</span><span class="tag">Executive Reporting</span></div>
+  </div>
+
+  <div class="tl-item past">
+    <div class="tl-top">
+      <div class="tl-role">Trainee — Customer Coordinator</div>
+      <span class="tl-date">May 2014 – Nov 2014</span>
+    </div>
+    <div class="tl-co">Intertek Testing Services &middot; Tirupur</div>
+    <p class="tl-narrative">Where client-first thinking was born. Managing accounts for <em>5 international buyers</em> from day one taught me precision, accountability, and the discipline of understanding exactly what a brand requires before you can serve it. I interpreted international testing standards across global brands and provided compliance advisory to manufacturers — an early lesson that being useful to a client means going beyond execution to becoming a trusted advisor.</p>
+    <div class="tags"><span class="tag">Client Coordination</span><span class="tag">International Accounts</span><span class="tag">Brand Standards</span><span class="tag">Compliance Advisory</span></div>
+  </div>
+
+</div>
+
+<div class="section-block">
+  <div class="sec-label">Education &amp; Certifications</div>
+  <div class="edu-grid">
+    <div class="edu-card">
+      <span class="edu-badge b-edu">Education</span>
+      <div class="edu-name">Professional Certificate in Digital Marketing for Performance &amp; Growth</div>
+      <div class="edu-org">IIM Kozhikode</div>
+      <div class="edu-yr">Feb – Dec 2024 &middot; &#127942; 1st Place, Google &amp; Meta Ads Project</div>
+    </div>
+    <div class="edu-card">
+      <span class="edu-badge b-edu">Education</span>
+      <div class="edu-name">PGDM in Textile Management</div>
+      <div class="edu-org">SVP International School of Textiles &amp; Management</div>
+      <div class="edu-yr">2015 – 2017 &middot; 2nd Rank &middot; Best Outgoing Student</div>
+    </div>
+    <div class="edu-card">
+      <span class="edu-badge b-edu">Education</span>
+      <div class="edu-name">B.Tech in Textile Technology</div>
+      <div class="edu-org">Bannari Amman Institute of Technology</div>
+      <div class="edu-yr">2010 – 2014</div>
+    </div>
+    <div class="edu-card">
+      <span class="edu-badge b-cert">Certification</span>
+      <div class="edu-name">Inbound Marketing Certification</div>
+      <div class="edu-org">HubSpot Academy</div>
+      <div class="edu-yr">In Progress</div>
+    </div>
+    <div class="edu-card">
+      <span class="edu-badge b-award">Achievement</span>
+      <div class="edu-name">AFAA Fast Track — Professional Excellence Programme</div>
+      <div class="edu-org">Asian Federation of Advertising Associations &middot; 95% The Advertising Academy, Kuala Lumpur, Malaysia</div>
+      <div class="edu-yr">1 of 6 Young Leaders selected from India &middot; Commissioned to groom Asia's next-generation marketing and communication leaders for a quantum leap in their careers</div>
+    </div>
+    <div class="edu-card">
+      <span class="edu-badge b-cert">Certification</span>
+      <div class="edu-name">AI for Growth Masterclass</div>
+      <div class="edu-org">Business Expansion &amp; Innovation</div>
+      <div class="edu-yr">Completed</div>
+    </div>
+    <div class="edu-card">
+      <span class="edu-badge b-award">Language</span>
+      <div class="edu-name">Business English Certificate (B2, Vantage)</div>
+      <div class="edu-org">Cambridge ESOL — Grade C</div>
+      <div class="edu-yr">Completed</div>
+    </div>
+  </div>
+</div>
+
+<a href="index.html" class="back-btn" onclick="window.location.href='index.html';return false;">&#8592; Back to Home</a>
+</main>
+
+<footer>&#169; 2026 Devika B &middot; Bengaluru, India</footer>
+<script>
+function toggleMenu(){document.getElementById('mobileMenu').classList.toggle('open');document.getElementById('hamburger').classList.toggle('open')}
+function closeMenu(){document.getElementById('mobileMenu').classList.remove('open');document.getElementById('hamburger').classList.remove('open')}
+</script>
+</body>
+</html>

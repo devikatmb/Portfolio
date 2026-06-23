@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>My Chapters — Devika B</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--burg:#8B1A35;--burg-light:#f5e8ec;--gold:#FFB300;--black:#111111;--white:#FFFFFF;--bg:#F8F8F8;--muted:#666666;--border:#E0E0E0}
+html{scroll-behavior:smooth}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(--black);line-height:1.55}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(248,248,248,0.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 5%;height:60px}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--burg);text-decoration:none}
+.nav-links{display:flex;gap:1.5rem;list-style:none;align-items:center}
+.nav-links a{font-family:'Space Grotesk',sans-serif;font-size:0.8rem;font-weight:500;color:var(--muted);text-decoration:none;transition:color 0.2s}
+.nav-links a:hover,.nav-links a.active{color:var(--burg)}
+.nav-cta{background:var(--burg)!important;color:var(--white)!important;padding:0.4rem 1rem;border-radius:3px;font-weight:600!important}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
+.hamburger span{display:block;width:22px;height:2px;background:var(--black);transition:all 0.3s}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-menu{display:none;position:fixed;top:60px;left:0;right:0;background:var(--white);border-bottom:1px solid var(--border);z-index:99;padding:1rem 5%;flex-direction:column;gap:0}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-family:'Space Grotesk',sans-serif;font-size:0.88rem;font-weight:500;color:var(--black);text-decoration:none;padding:0.8rem 0;border-bottom:1px solid var(--border);display:block}
+.mobile-menu a:last-child{border-bottom:none;color:var(--burg);font-weight:600}
+.page-hero{padding:72px 5% 20px;background:var(--black);border-bottom:none}
+.p-eyebrow{font-family:'Space Grotesk',sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-bottom:0.4rem}
+.p-title{font-family:'Playfair Display',serif;font-size:clamp(1.2rem,3vw,2.1rem);font-weight:300;color:var(--white);line-height:1.05;letter-spacing:-1px;margin-bottom:0.5rem}
+.p-sub{font-family:'Space Grotesk',sans-serif;font-size:0.85rem;color:rgba(255,255,255,0.65);max-width:600px;line-height:1.7}
+main{padding:20px 5%;max-width:780px}
+.quote-box{background:var(--white);border-left:3px solid var(--gold);padding:1rem 1.5rem;margin-bottom:1.2rem}
+.quote-box p{font-family:'Space Grotesk',sans-serif;font-size:0.88rem;font-weight:500;color:var(--black);line-height:1.7;font-style:normal}
+.quote-box .line1{display:block;font-weight:600;color:var(--burg)}
+.quote-box .line2{display:block;color:var(--muted);margin-top:0.2rem}
+.cs-box{background:var(--white);border:1px solid var(--border);border-top:3px solid var(--burg);padding:1.2rem;text-align:center;margin-bottom:1rem}
+.cs-title{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:600;color:var(--black);margin-bottom:0.5rem}
+.cs-text{font-size:0.85rem;color:var(--muted);line-height:1.7;max-width:440px;margin:0 auto}
+.ch-label{font-family:'Space Grotesk',sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--burg);margin-bottom:0.8rem}
+.chapters{display:flex;flex-direction:column;gap:0.4rem}
+.ch-item{background:var(--white);border:1px solid var(--border);padding:0.7rem 1rem;display:flex;gap:1rem;align-items:flex-start}
+.ch-num{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:var(--border);line-height:1;flex-shrink:0;min-width:2rem}
+.ch-title{font-family:'Playfair Display',serif;font-size:0.98rem;font-weight:600;color:var(--black);margin-bottom:0.2rem}
+.ch-hint{font-size:0.8rem;color:var(--muted)}
+.back-btn{display:inline-flex;align-items:center;gap:0.4rem;font-family:'Space Grotesk',sans-serif;font-size:0.75rem;font-weight:700;color:var(--black);text-decoration:none;border-bottom:2px solid var(--gold);padding-bottom:1px;margin-top:2rem;text-transform:uppercase;letter-spacing:0.04em;display:block;width:fit-content}
+footer{background:#000;color:#444;text-align:center;padding:1rem 5%;font-family:'Space Grotesk',sans-serif;font-size:0.72rem;margin-top:1.5rem}
+@media(max-width:768px){.nav-links{display:none}.hamburger{display:flex}}
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo">Devika B</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="journey.html">My Foundation</a></li>
+    <li><a href="work.html">My Workspace</a></li>
+    <li><a href="story.html" class="active">My Chapters</a></li>
+    <li><a href="index.html#contact" class="nav-cta">Let's Talk</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" onclick="closeMenu()">Home</a>
+  <a href="journey.html" onclick="closeMenu()">My Foundation</a>
+  <a href="work.html" onclick="closeMenu()">My Workspace</a>
+  <a href="story.html" onclick="closeMenu()">My Chapters</a>
+  <a href="index.html#contact" onclick="closeMenu()">Let's Talk</a>
+</div>
+<div class="page-hero">
+  <div class="p-eyebrow">Personal Story</div>
+  <h1 class="p-title">My Chapters</h1>
+  <p class="p-sub">Because every person is more than a resume. Unfiltered — the lessons, turns, and moments that shaped the human behind the professional.</p>
+</div>
+<main>
+<div class="quote-box">
+  <p>
+    <span class="line1">"I believe in making my every experience Educational"</span>
+    <span class="line2">— and this page is proof that I'm still learning, still growing, and not afraid to show it.</span>
+  </p>
+</div>
+<div class="cs-box">
+  <div class="cs-title">Writing in Progress...</div>
+  <p class="cs-text">Personal learnings take real words. I'm still finding mine. Real experiences, honest reflections — coming soon.</p>
+</div>
+<div class="ch-label">Chapters Coming Soon</div>
+<div class="chapters">
+  <div class="ch-item"><div class="ch-num">01</div><div><div class="ch-title">The Non-Linear Path</div><p class="ch-hint">Testing labs &#8594; Textiles &#8594; HR Tech &#8594; Media &#8594; Digital Marketing. Why the "wrong" path was actually the right one.</p></div></div>
+  <div class="ch-item"><div class="ch-num">02</div><div><div class="ch-title">What Sales Taught Me About People</div><p class="ch-hint">Years in B2B gave me something no course ever could — the ability to really listen.</p></div></div>
+  <div class="ch-item"><div class="ch-num">03</div><div><div class="ch-title">The Pivot Moment</div><p class="ch-hint">Going back for an IIM certification at a stage when most people stop studying.</p></div></div>
+  <div class="ch-item"><div class="ch-num">04</div><div><div class="ch-title">AI Scared Me. Then It Fascinated Me.</div><p class="ch-hint">My honest journey from intimidated to wanting to build a career around AI.</p></div></div>
+  <div class="ch-item"><div class="ch-num">05</div><div><div class="ch-title">1 of 6 — The AFAA Moment</div><p class="ch-hint">Being selected from 74 applicants across India and what that trip to Kuala Lumpur changed in me.</p></div></div>
+</div>
+<a href="index.html" class="back-btn" onclick="window.location.href='index.html';return false;">&#8592; Back to Home</a>
+</main>
+<footer>&#169; 2026 Devika B &middot; Bengaluru, India</footer>
+<script>
+function toggleMenu(){document.getElementById('mobileMenu').classList.toggle('open');document.getElementById('hamburger').classList.toggle('open')}
+function closeMenu(){document.getElementById('mobileMenu').classList.remove('open');document.getElementById('hamburger').classList.remove('open')}
+</script>
+</body>
+</html>
