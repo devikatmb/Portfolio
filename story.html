@@ -41,8 +41,25 @@ main{padding:20px 5%;max-width:780px}
 .chapters{display:flex;flex-direction:column;gap:0.4rem}
 .ch-item{background:var(--white);border:1px solid var(--border);padding:0.7rem 1rem;display:flex;gap:1rem;align-items:flex-start}
 .ch-num{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:var(--border);line-height:1;flex-shrink:0;min-width:2rem}
+.ch-body{flex:1;min-width:0}
 .ch-title{font-family:'Playfair Display',serif;font-size:0.98rem;font-weight:600;color:var(--black);margin-bottom:0.2rem}
 .ch-hint{font-size:0.8rem;color:var(--muted)}
+.ch-item.open-ch{border-top:3px solid var(--burg)}
+.ch-item.open-ch .ch-num{color:var(--burg)}
+.ch-more{margin-top:0.6rem}
+.ch-more summary{list-style:none;cursor:pointer;display:inline-block;font-family:'Space Grotesk',sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--burg);border-bottom:2px solid var(--gold);padding-bottom:1px}
+.ch-more summary::-webkit-details-marker{display:none}
+.ch-more summary::after{content:"Read the story \2192"}
+.ch-more[open] summary::after{content:"Show less \2191"}
+.ch-story{margin-top:0.9rem;padding-top:0.9rem;border-top:1px solid var(--border)}
+.ch-story p{font-size:0.78rem;color:#333;line-height:1.75;margin-bottom:0.8rem}
+.ch-story p:last-child{margin-bottom:0}
+.ch-story .lead{font-family:'Playfair Display',serif;font-size:0.92rem;font-weight:600;color:var(--black);line-height:1.6}
+.ch-story em{font-style:italic;color:var(--muted)}
+.ch-story strong{font-weight:700;color:var(--burg)}
+.ch-story .pull{font-family:'Space Grotesk',sans-serif;font-size:0.8rem;font-weight:600;color:var(--burg);background:var(--burg-light);border-left:3px solid var(--burg);padding:0.7rem 1rem;line-height:1.7}
+.ch-story .closing{font-family:'Space Grotesk',sans-serif;font-size:0.8rem;font-weight:500;color:var(--black);background:var(--bg);border-left:3px solid var(--gold);padding:0.7rem 1rem;line-height:1.7}
+.ch-story .closing strong{color:var(--burg)}
 .back-btn{display:inline-flex;align-items:center;gap:0.4rem;font-family:'Space Grotesk',sans-serif;font-size:0.75rem;font-weight:700;color:var(--black);text-decoration:none;border-bottom:2px solid var(--gold);padding-bottom:1px;margin-top:2rem;text-transform:uppercase;letter-spacing:0.04em;display:block;width:fit-content}
 footer{background:#000;color:#444;text-align:center;padding:1rem 5%;font-family:'Space Grotesk',sans-serif;font-size:0.72rem;margin-top:1.5rem}
 @media(max-width:768px){.nav-links{display:none}.hamburger{display:flex}}
@@ -83,15 +100,33 @@ footer{background:#000;color:#444;text-align:center;padding:1rem 5%;font-family:
 </div>
 <div class="cs-box">
   <div class="cs-title">Writing in Progress...</div>
-  <p class="cs-text">Personal learnings take real words. I'm still finding mine. Real experiences, honest reflections — coming soon.</p>
+  <p class="cs-text">Personal learnings take real words. I'm still finding mine. Chapter 01 is live — the rest are still being written.</p>
 </div>
-<div class="ch-label">Chapters Coming Soon</div>
+<div class="ch-label">Chapters</div>
 <div class="chapters">
-  <div class="ch-item"><div class="ch-num">01</div><div><div class="ch-title">The Non-Linear Path</div><p class="ch-hint">Testing labs &#8594; Textiles &#8594; HR Tech &#8594; Media &#8594; Digital Marketing. Why the "wrong" path was actually the right one.</p></div></div>
-  <div class="ch-item"><div class="ch-num">02</div><div><div class="ch-title">What Sales Taught Me About People</div><p class="ch-hint">Years in B2B gave me something no course ever could — the ability to really listen.</p></div></div>
-  <div class="ch-item"><div class="ch-num">03</div><div><div class="ch-title">The Pivot Moment</div><p class="ch-hint">Going back for an IIM certification at a stage when most people stop studying.</p></div></div>
-  <div class="ch-item"><div class="ch-num">04</div><div><div class="ch-title">AI Scared Me. Then It Fascinated Me.</div><p class="ch-hint">My honest journey from intimidated to wanting to build a career around AI.</p></div></div>
-  <div class="ch-item"><div class="ch-num">05</div><div><div class="ch-title">1 of 6 — The AFAA Moment</div><p class="ch-hint">Being selected from 74 applicants across India and what that trip to Kuala Lumpur changed in me.</p></div></div>
+  <div class="ch-item open-ch">
+    <div class="ch-num">01</div>
+    <div class="ch-body">
+      <div class="ch-title">The Non-Linear Path</div>
+      <p class="ch-hint">Testing labs &#8594; Textiles &#8594; HR Tech &#8594; Media &#8594; Digital Marketing. Why the "wrong" path was actually the right one.</p>
+      <details class="ch-more">
+        <summary></summary>
+        <div class="ch-story">
+          <p class="lead">I have taken quite a lot of different paths throughout my career.</p>
+          <p>I started in Textiles, and the reason I chose was very simple. I was scared to write code. I didn't want to end up in a job where I have to work with a computer a lot. <em>How silly of me.</em></p>
+          <p>After entering the industry, I developed <strong>perseverance</strong>. I always thought the hardships in it were a challenge. I faced a lot of struggles and fought so hard to survive in it. It took a tonne of time to actually realize that the industry wasn't meant for me.</p>
+          <p>I got an opportunity in the HR Tech world, explored it. I got an opportunity in the Media industry, and explored that too. When I was busy switching industries, I didn't realize the fact that the domain was the same the whole time. <strong>It was always Client Handling.</strong></p>
+          <p>As a very introvert person, it took me almost a decade to understand that I am in a job where I can't be an introvert.</p>
+          <p class="pull">So now, should I change my path? Again? This question scared me a lot and stll. So do all the experiences I have go in vain?</p>
+          <p class="closing"><strong>No. I will not let that happen.</strong> Throughout the journey, I was never a quitter, I was never a person who didn't work hard, and I was never a person who stopped learning. Each and every experience shaped me to reach my next level. And many more heights are waiting to be reached.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+  <div class="ch-item"><div class="ch-num">02</div><div class="ch-body"><div class="ch-title">What Sales Taught Me About People</div><p class="ch-hint">Years in B2B gave me something no course ever could — the ability to really listen.</p></div></div>
+  <div class="ch-item"><div class="ch-num">03</div><div class="ch-body"><div class="ch-title">The Pivot Moment</div><p class="ch-hint">Going back for an IIM certification at a stage when most people stop studying.</p></div></div>
+  <div class="ch-item"><div class="ch-num">04</div><div class="ch-body"><div class="ch-title">AI Scared Me. Then It Fascinated Me.</div><p class="ch-hint">My honest journey from intimidated to wanting to build a career around AI.</p></div></div>
+  <div class="ch-item"><div class="ch-num">05</div><div class="ch-body"><div class="ch-title">1 of 6 — The AFAA Moment</div><p class="ch-hint">Being selected from 74 applicants across India and what that trip to Kuala Lumpur changed in me.</p></div></div>
 </div>
 <a href="index.html" class="back-btn" onclick="window.location.href='index.html';return false;">&#8592; Back to Home</a>
 </main>
